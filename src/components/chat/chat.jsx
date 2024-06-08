@@ -3,13 +3,14 @@ import axios from "axios";
 import "./chat.css";
 
 export const Chat = () => {
-  const [userInput, setUserInput] = useState("");
-  const [chatHistory, setChatHistory] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [showInput, setShowInput] = useState(false);
-  const [isListening, setIsListening] = useState(false);
-  const [isSpeaking, setIsSpeaking] = useState(false);
-  const recognitionRef = useRef(null);
+  const [userInput, setUserInput] = useState(""); //gets the user input
+  const [chatHistory, setChatHistory] = useState([]); //stores the chat history
+  const [loading, setLoading] = useState(false); //regarding the loading state of an input/response
+  const [showInput, setShowInput] = useState(false); //controls the visibility of the chat
+  const [isListening, setIsListening] = useState(false); //refers to the listening process(ongoing) of the website/chat
+  const [isSpeaking, setIsSpeaking] = useState(false); //refers to the speaking of the teacher's response
+  const recognitionRef = useRef(null); //reference to the speech recognition instance
+  //no teacher response?
 
   const SpeechRecognition =
     window.SpeechRecognition || window.webkitSpeechRecognition;
